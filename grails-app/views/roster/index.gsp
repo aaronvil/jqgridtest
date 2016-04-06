@@ -6,8 +6,31 @@
     <g:set var="entityName" value="${message(code: 'roster.label', default: 'Roster')}"/>
     <title><g:message code="default.list.label" args="[entityName]"/></title>
 </head>
-
 <body>
+<a href="#list-roster" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+<div class="nav" role="navigation">
+    <ul>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+    </ul>
+</div>
+
+<div class="pageBody">
+    %{--MUST HAVE THE RESOUCE TAGS FOR JQGRID TO WORK
+        joqgrid rendered in the listGrid template
+    --}%
+    <jq:resources />
+    <jqui:resources />
+    <jqgrid:resources />
+    <g:render template="listGrid"/>
+</div>
+</body>
+</html>
+
+
+
+%{-- The original code
+
 <a href="#list-roster" class="skip" tabindex="-1"><g:message code="default.link.skip.label"
                                                              default="Skip to content&hellip;"/></a>
 
@@ -64,4 +87,4 @@
     </div>
 </div>
 </body>
-</html>
+</html>--}%
