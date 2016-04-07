@@ -12,8 +12,8 @@ The code for a jqgrid
             heigth: 'auto',
             width: '1000',
             caption: 'Roster List',
-            url: 'Roster/roster/listRoster',
-            //editurl:
+            url: 'Rooster/roster/listRoster',
+            editurl:'Rooster/roster/editAllRoster',
             datatype: "json",
             colNames: ['','Name', 'Position', 'Department', 'Location'],
             colModel: [
@@ -40,7 +40,7 @@ The code for a jqgrid
             viewrecords: true,
             sortorder: "asc",
             autowidth:true,
-            scroll: true,
+            //scroll: true,
             forceFit:true,
             shrinkToFit: true,
             pager: '#rosterAllPager',
