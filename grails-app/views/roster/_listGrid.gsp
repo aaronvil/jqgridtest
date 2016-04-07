@@ -2,22 +2,36 @@
 The code for a jqgrid
 --}%
 
+
+
+
+
 <script type="text/javascript">
     $(document).ready(function() {//code goes here
         jQuery("#allRoster").jqGrid({
             heigth: 'auto',
             width: '1000',
             caption: 'Roster List',
-            url: 'Roster/roster',
+            url: 'Roster/roster/listRoster',
             //editurl:
             datatype: "json",
-            colNames: ['Name', 'Position', 'Department', 'Location'],
+            colNames: ['','Name', 'Position', 'Department', 'Location'],
             colModel: [
+                {name:'actions', index:'actions', editable:false, required:false, sortable:false, search:false, width:40, fixed: true, frozen: true,
+                    formatter: 'actions', hidden:false, formatoptions: {
+                    afterSave: function(e) {
+                        $("#allRoster").trigger("reloadGrid");
+                        setTimeout(function () {
+                                    $('#allRoster').jqGrid('resetSelection');
+                                    $('#allRoster').jqGrid('setSelection', e);
+                                }, 200
+                        );
+                    }
+                }},
                 {name:'name', width:200, editable:true},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
                 {name:'location', width:200, editable:true}
-
             ],
 
             rowNum:20,
@@ -26,7 +40,7 @@ The code for a jqgrid
             viewrecords: true,
             sortorder: "asc",
             autowidth:true,
-            // scroll: true,
+            scroll: true,
             forceFit:true,
             shrinkToFit: true,
             pager: '#rosterAllPager',
@@ -34,7 +48,6 @@ The code for a jqgrid
             gridComplete: function() {
             }
         });
-        jQuery("#allRoster").jqGrid('navGrid','#rosterAllPager',{edit:false,add:false,del:false});
 
 
         %{-- function to allow for searching a column for some string--}%
@@ -59,7 +72,7 @@ The code for a jqgrid
 
         });
         %{--Not sure what exactly this does--}%
-        // jQuery("#grid_id").navGrid('#allMobileSuitsPager',"add_allMobileSuits" );
+        jQuery("#grid_id").navGrid('#allMobileSuitsPager',"add_allMobileSuits" );
 
 
 
