@@ -12,8 +12,8 @@ The code for a jqgrid
             heigth: 'auto',
             width: '1000',
             caption: 'Roster List',
-            url: 'Rooster/roster/listRoster',
-            editurl:'Rooster/roster/editAllRoster',
+            url: 'listAllRoster',
+            editurl:'editAllRoster',
             datatype: "json",
             colNames: ['','Name', 'Position', 'Department', 'Location'],
             colModel: [
