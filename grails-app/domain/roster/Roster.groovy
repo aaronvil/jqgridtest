@@ -8,7 +8,7 @@ class Roster {
     String location
 
     static constraints = {
-        name(blank: false)
+        name(blank: false, maxSize: 100)
         position(blank: false)
         department(blank: false)
         location(blank: false)
