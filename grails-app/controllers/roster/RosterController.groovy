@@ -6,7 +6,7 @@ class RosterController {
 
     def scaffold = Roster
 
-    def listRoster = {
+    def listAllRoster = {
         def sortIndex = params.sidx ?: 'name'
         def sortOrder = params.sord ?: 'asc'
         def maxRows = Integer.valueOf(params.rows)
@@ -21,11 +21,7 @@ class RosterController {
         def totalRows = roster.totalCount
         def numberOfPages = Math.ceil(totalRows / maxRows)
         //the first attribute in the collection is for the edit feature action thing
-        def results = roster?.collect{
-            [
-                    cell: ['', it.name, it.position, it.department, it.location],
-                    id: it.id
-            ]
+        def results = roster?.collect{ [cell: ['', it.name, it.position, it.department, it.location], id: it.id]
         }
         def jsonData = [rows: results, page: currentPage, records: totalRows, total: numberOfPages]
         render jsonData as JSON
