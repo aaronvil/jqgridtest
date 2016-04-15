@@ -1,6 +1,7 @@
 package roster
 
 import grails.converters.JSON
+import sun.nio.fs.WindowsUserPrincipals
 
 class RosterController {
 
@@ -35,19 +36,33 @@ class RosterController {
 
         params.theObject = Roster.get(params.id)
 
-        if(params.name)
-            params.theObject.name = params.name
-        if(params.position)
-            params.theObject.position = params.position
-        if(params.department)
-            params.theObject.department = params.deparment
-        if(params.location)
-            params.theObject.location = params.location
+        switch (params.oper){
+            case 'edit':
+                if(params.name)
+                    params.theObject.name = params.name
+                if(params.position)
+                    params.theObject.position = params.position
+                if(params.department)
+                    params.theObject.department = params.deparment
+                if(params.location)
+                    params.theObject.location = params.location
 
-        if (! params.theObject.hasErrors() && params.theObject.save()) {
-            id params.theObject.id
-            state = "OK"
+                if (! params.theObject.hasErrors() && params.theObject.save()) {
+                    id params.theObject.id
+                    state = "OK"
+                }
+                break;
+
+            case 'del':
+                item = Roster.get(params.id)
+                if(item) {
+                    item.delete()
+                    message ="Name'${item.name}' Deleted"
+                    state = "OK"
+                }
+                break;
         }
+
         def response = [state:state,id:id]
         render response as JSON
     }
