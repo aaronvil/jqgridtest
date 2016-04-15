@@ -17,17 +17,10 @@ The code for a jqgrid
             datatype: "json",
             colNames: ['','Name', 'Position', 'Department', 'Location'],
             colModel: [
-                {name:'actions', index:'actions', editable:false, required:false, sortable:false, search:false, width:40, fixed: true, frozen: true,
+                {name:'actions', index:'actions', search:false, sortable:false, title:false, editable:false, required:false, sortable:false, width:"20",
                     formatter: 'actions', hidden:false, formatoptions: {
-                    afterSave: function(e) {
-                        $("#allRoster").trigger("reloadGrid");
-                        setTimeout(function () {
-                                    $('#allRoster').jqGrid('resetSelection');
-                                    $('#allRoster').jqGrid('setSelection', e);
-                                }, 200
-                        );
-                    }
-                }},
+                    keys: true, editbutton: true, delbutton: true}
+                },
                 {name:'name', width:200, editable:true},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
@@ -53,9 +46,9 @@ The code for a jqgrid
         %{-- function to allow for searching a column for some string--}%
         jQuery('#allRoster').filterToolbar({id:'allRoster', searchOnEnter:true});
         $("#allRoster").jqGrid('navGrid','#rosterAllPager',{
+                    edit:false,
                     add:false,
                     del:false,
-                    edit:false,
                     refresh:false,
                     refreshstate:"current",
                     search:false
