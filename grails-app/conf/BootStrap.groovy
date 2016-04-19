@@ -2,19 +2,22 @@ import roster.Location
 import roster.Roster
 
 class BootStrap {
-    def LA
+    def LA, NY
     def init = { servletContext ->
-        if(Roster.count() == 0){
-            new Roster(name: 'Henry', position: 'assistant', department: 'sales', location: LA).save()
-            new Roster(name: 'Jake', position: 'Tech', department: 'IT', location: LA).save()
-            new Roster(name: 'Aaron', position: 'Intern', department: 'IT', location: LA).save()
-            new Roster(name: 'Mary', position: 'Supervisor', department: 'HR', location: LA).save()
-            new Roster(name: 'Alice', position: 'CFO', department: 'Marketing', location: LA).save()
+        if(Location.count() == 0){
+            LA =  new Location(city: "Los Angles", state: "California", country: "USA", zipcode: "90001").save(failOnError: true)
+            NY = new Location(city: "New York City", state: "New York", country: "USA", zipcode: "90002").save(failOnError: true)
         }
 
-        if(Location.count() == 0){
-             LA =  new Location(city: "Los Angles", state: "California", country: "USA", zipcode: "90001").save()
+        if(Roster.count() == 0){
+            new Roster(name: 'Henry', position: 'assistant', department: 'sales', location: LA).save(failOnError: true)
+            new Roster(name: 'Jake', position: 'Tech', department: 'IT', location: LA).save(failOnError: true)
+            new Roster(name: 'Aaron', position: 'Intern', department: 'IT', location: NY).save(failOnError: true)
+            new Roster(name: 'Mary', position: 'Supervisor', department: 'HR', location: LA).save(failOnError: true)
+            new Roster(name: 'Alice', position: 'CFO', department: 'Marketing', location: NY).save(failOnError: true)
         }
+
+
     }
     def destroy = {
     }
