@@ -14,4 +14,9 @@ class Location {
         zipcode(blank: false, maxSize: 10)
 
     }
+
+    String toString(){
+        return city
+    }
+
 }
