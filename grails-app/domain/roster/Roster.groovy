@@ -5,12 +5,15 @@ class Roster {
     String name
     String position
     String department
-    String location
+    Location location
+
+    static hasMany = [location: Location]
+    static belongsTo = [location:Location]
 
     static constraints = {
         name(blank: false, maxSize: 100)
         position(blank: false)
         department(blank: false)
-        location(blank: false)
+        location(nullable: true)
     }
 }
