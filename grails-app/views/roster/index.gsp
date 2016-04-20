@@ -28,9 +28,17 @@
 </html>
 
 
+%{-- The Original Code
+<%@ page import="roster.Roster" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="layout" content="main">
+    <g:set var="entityName" value="${message(code: 'roster.label', default: 'Roster')}"/>
+    <title><g:message code="default.list.label" args="[entityName]"/></title>
+</head>
 
-%{-- The original code
-
+<body>
 <a href="#list-roster" class="skip" tabindex="-1"><g:message code="default.link.skip.label"
                                                              default="Skip to content&hellip;"/></a>
 
@@ -59,8 +67,7 @@
             <g:sortableColumn property="department"
                               title="${message(code: 'roster.department.label', default: 'Department')}"/>
 
-            <g:sortableColumn property="location"
-                              title="${message(code: 'roster.location.label', default: 'Location')}"/>
+            <th><g:message code="roster.location.label" default="Location"/></th>
 
         </tr>
         </thead>
@@ -87,4 +94,5 @@
     </div>
 </div>
 </body>
-</html>--}%
+</html>
+--}%
