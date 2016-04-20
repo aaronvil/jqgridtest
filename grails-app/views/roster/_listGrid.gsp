@@ -24,7 +24,7 @@ The code for a jqgrid
                 {name:'name', width:200, editable:true},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200, editable:true}
+                {name:'location', width:200, editable:false}
             ],
 
             rowNum:20,
