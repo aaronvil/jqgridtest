@@ -21,16 +21,17 @@ The code for a jqgrid
                     formatter: 'actions', hidden:false, formatoptions: {
                     keys: true, editbutton: true, delbutton: true}
                 },
-                {name:'name', width:200, editable:true},
+                {name:'name', width:200, sortable: true},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200, editable:false}
+                {name:'location', width:200, editable:true}
             ],
 
             rowNum:20,
             rowList:[20,40,60],
             gridview: true,
             viewrecords: true,
+            sortname: 'name',
             sortorder: "asc",
             autowidth:true,
             //scroll: true,
