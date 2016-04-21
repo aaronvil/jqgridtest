@@ -17,14 +17,14 @@ The code for a jqgrid
             datatype: "json",
             colNames: ['','Name', 'Position', 'Department', 'Location'],
             colModel: [
-                {name:'actions', index:'actions', search:false, sortable:false, title:false, editable:false, required:false, sortable:false, width:"20",
+                {name:'actions', index:'actions', search:false, sortable:true, title:false, editable:false, required:false, sortable:true, width:"20",
                     formatter: 'actions', hidden:false, formatoptions: {
                     keys: true, editbutton: true, delbutton: true}
                 },
-                {name:'name', width:200, sortable: true},
+                {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200, editable:true}
+                {name:'location', width:200, editable:false, formatter:'showlink',formatoptions: {showAction:'show'},title:false}
             ],
 
             rowNum:20,
