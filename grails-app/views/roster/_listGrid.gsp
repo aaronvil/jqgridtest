@@ -10,7 +10,7 @@ The code for a jqgrid
             width: '1000', // width of the grid
             caption: 'Roster List', //Title for the grid
             url: 'listAllRoster', //loaction in where the data for the grid is comiing from. The controller you use to initialize the grid data.
-            editurl:'editAllRoster',
+            editurl:'editAllRoster', //same as the url command, points to the controller editAllRoster to tell the edit column what to do when editting the rows.
             datatype: "json", //the type of data processing through the grid.
             colNames: ['','Name', 'Position', 'Department', 'Location'], // The column titles you want to use for the grid
             colModel: [ //The parameters for the data going through each column.
@@ -22,7 +22,7 @@ The code for a jqgrid
                 {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200,editable:true, edittype:'select', formatter:'showlink',formatoptions: {showAction: 'edit'}, title: false}
+                {name:'location', width:200,editable:false , formatter:'showlink',formatoptions: {showAction: 'show'}, title: false}
             ],
 
             rowNum:10, //amount of rows you want to start off when the grid is called
@@ -45,14 +45,14 @@ The code for a jqgrid
         jQuery('#allRoster').filterToolbar({id:'allRoster', searchOnEnter:true});
         $("#allRoster").jqGrid('navGrid','#rosterAllPager',{
                     edit:false, //If true adds edit button at the bottom of the grid. Same for add and delete
-                    add:false,
+                    add:true,
                     del:false,
                     refresh:false,
                     refreshstate:"current",
                     search:false
                 },
                 {},//edit options, where you put the commands on what happens if you press the edit button.
-
+                {url:'editAllRoster'},
                 {recreateForm:true //since clearAfterAdd is trueby default, recreate the form so we re-establish value for parent id
                 });
 
