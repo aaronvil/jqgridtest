@@ -15,6 +15,11 @@ class BootStrap {
             new Roster(name: 'Aaron', position: 'Intern', department: 'IT', location: NY).save(failOnError: true)
             new Roster(name: 'Mary', position: 'Supervisor', department: 'HR', location: LA).save(failOnError: true)
             new Roster(name: 'Alice', position: 'CFO', department: 'Marketing', location: NY).save(failOnError: true)
+            new Roster(name: 'Mark', position: 'assistant', department: 'sales', location: LA).save(failOnError: true)
+            new Roster(name: 'Frank', position: 'Tech', department: 'IT', location: LA).save(failOnError: true)
+            new Roster(name: 'Jessica', position: 'Intern', department: 'IT', location: NY).save(failOnError: true)
+            new Roster(name: 'Sarah', position: 'Supervisor', department: 'HR', location: LA).save(failOnError: true)
+            new Roster(name: 'Erik', position: 'CFO', department: 'Marketing', location: NY).save(failOnError: true)
         }
 
 
