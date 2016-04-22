@@ -19,10 +19,10 @@ The code for a jqgrid
                     formatter: 'actions', hidden:false, formatoptions: {
                     keys: true, editbutton: true, delbutton: true}
                 },
-                {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {showAction:'show'},title:false},
+                {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200,editable:false , formatter:'showlink',formatoptions: {showAction: 'show'}, title: false}
+                {name:'location', width:200,editable:false , formatter:'showlink',formatoptions: {baseLinkUrl:'../location/', showAction: 'show'}, title: false}
             ],
 
             rowNum:10, //amount of rows you want to start off when the grid is called
@@ -44,14 +44,14 @@ The code for a jqgrid
         // This function allows you to search the column for a specific thing you are looking for.
         jQuery('#allRoster').filterToolbar({id:'allRoster', searchOnEnter:true});
         $("#allRoster").jqGrid('navGrid','#rosterAllPager',{
-                    edit:false, //If true adds edit button at the bottom of the grid. Same for add and delete
+                    edit:true, //If true adds edit button at the bottom of the grid. Same for add and delete
                     add:true,
                     del:false,
                     refresh:false,
                     refreshstate:"current",
                     search:false
                 },
-                {},//edit options, where you put the commands on what happens if you press the edit button.
+                {url:'editAllRoster'},//edit options, where you put the commands on what happens if you press the edit button.
                 {url:'editAllRoster'},
                 {recreateForm:true //since clearAfterAdd is trueby default, recreate the form so we re-establish value for parent id
                 });
