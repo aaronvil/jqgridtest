@@ -23,10 +23,14 @@ class RosterController {
     def show(Roster rosterInstance) {
         respond rosterInstance
     }
+    def showLocation(Roster locationInstance) {
+        respond locationInstance
+    }
 
     def create() {
         respond new Roster(params)
     }
+
 
     def listAllRoster = {
         def sortIndex = params.sidx ?: 'name'
@@ -65,15 +69,14 @@ class RosterController {
                     params.theObject.position = params.position
                 if(params.department)
                     params.theObject.department = params.deparment
-                /*if(params.location)
+                if(params.location)
                     params.theObject.location = params.location
-                */
+
                 if (! params.theObject.hasErrors() && params.theObject.save()) {
                     id params.theObject.id
                     state = "OK"
                 }
                 break;
-
             case 'del':
                 item = Roster.get(params.id)
                 if(item) {
@@ -81,6 +84,9 @@ class RosterController {
                     message ="Name'${item.name}' Deleted"
                     state = "OK"
                 }
+                break;
+            case 'add':
+                respond new Roster(params)
                 break;
         }
 
@@ -228,4 +234,5 @@ class RosterController {
             '*' { render status: NOT_FOUND }
         }
     }
+
 }
