@@ -22,17 +22,17 @@ The code for a jqgrid
                 {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200,editable:false , formatter:'showlink',formatoptions: {baseLinkUrl:'../location/', showAction: 'show'}, title: false} // Currently pointing to the wrong location.
+                {name:'location', width:200,editable:false ,title:false}
             ],
 
             rowNum:10, //amount of rows you want to start off when the grid is called
+
             rowList:[10,20,40,60], //the size of the number of rows you want to hold
             gridview: true, //allows you to see the grid, not sure if absolutley neccessary
             viewrecords: true, //same for gridview
             sortname: 'name',//when grid is inialized what you want the rows to be sorted by.
             sortorder: "asc",//if the sorting order from sort name are in asceding order or not.
             autowidth:true, //the width of the column holding the data to be auto.
-            //scroll: true,
             forceFit:true,
             shrinkToFit: true,
             pager: '#rosterAllPager',
@@ -40,6 +40,8 @@ The code for a jqgrid
             gridComplete: function() {
             }
         });
+
+
 
         // This function allows you to search the column for a specific thing you are looking for.
         jQuery('#allRoster').filterToolbar({id:'allRoster', searchOnEnter:true});
