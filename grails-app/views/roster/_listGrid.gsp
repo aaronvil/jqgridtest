@@ -19,7 +19,7 @@ The code for a jqgrid
                     formatter: 'actions', hidden:false, formatoptions: {
                     keys: true, editbutton: true, delbutton: true}
                 },
-                {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
+                {name:'name', width:200,editable:false, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
                 {name:'location', width:200,editable:false ,title:false}
