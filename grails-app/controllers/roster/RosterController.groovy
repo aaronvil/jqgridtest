@@ -43,6 +43,7 @@ class RosterController {
             if (params.position) ilike('position', "%${params.position}%")
             if (params.department) ilike('department', "%${params.department}%")
             if (params.location) ilike('location', "%${params.location}%")
+            order(sortIndex, sortOrder)
         }
         def totalRows = roster.totalCount
         def numberOfPages = Math.ceil(totalRows / maxRows)
