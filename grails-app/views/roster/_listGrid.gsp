@@ -15,14 +15,14 @@ The code for a jqgrid
             colNames: ['','Name', 'Position', 'Department', 'Location'], // The column titles you want to use for the grid
             colModel: [ //The parameters for the data going through each column.
                 //This empty column is a column that holds both the edit and delete button.
-                {name:'actions', index:'actions', search:false, sortable:true, title:false, editable:false, required:false, sortable:true, width:"20",
+                {name:'actions', index:'actions', search:false, sortable:false, title:false, editable:false, required:false, sortable:false, width:"20",
                     formatter: 'actions', hidden:false, formatoptions: {
                     keys: true, editbutton: true, delbutton: true}
                 },
                 {name:'name', width:200, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200,editable:false , formatter:'showlink',formatoptions: {baseLinkUrl:'../location/', showAction: 'show'}, title: false}
+                {name:'location', width:200,editable:false , formatter:'showlink',formatoptions: {baseLinkUrl:'../location/', showAction: 'show'}, title: false} // Currently pointing to the wrong location.
             ],
 
             rowNum:10, //amount of rows you want to start off when the grid is called
@@ -51,8 +51,7 @@ The code for a jqgrid
                     refreshstate:"current",
                     search:false
                 },
-                {url:'editAllRoster'},//edit options, where you put the commands on what happens if you press the edit button.
-                {url:'editAllRoster'},
+                {},
                 {recreateForm:true //since clearAfterAdd is trueby default, recreate the form so we re-establish value for parent id
                 });
 
