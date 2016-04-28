@@ -22,7 +22,7 @@ The code for a jqgrid
                 {name:'name', width:200,editable:false, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200,editable:false ,title:false}
+                {name:'location', width:200,editable:false ,title:false, formatter: 'showlink', formatoptions: {showAction:'../location/show'}}
             ],
 
             rowNum:10, //amount of rows you want to start off when the grid is called
@@ -46,8 +46,8 @@ The code for a jqgrid
         // This function allows you to search the column for a specific thing you are looking for.
         jQuery('#allRoster').filterToolbar({id:'allRoster', searchOnEnter:true});
         $("#allRoster").jqGrid('navGrid','#rosterAllPager',{
-                    edit:true, //If true adds edit button at the bottom of the grid. Same for add and delete
-                    add:true,
+                    edit:false, //If true adds edit button at the bottom of the grid. Same for add and delete
+                    add:false,
                     del:false,
                     refresh:false,
                     refreshstate:"current",
