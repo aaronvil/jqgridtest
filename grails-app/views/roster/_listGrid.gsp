@@ -22,7 +22,7 @@ The code for a jqgrid
                 {name:'name', width:200,editable:false, sortable: true, formatter:'showlink',formatoptions: {baseLinkUrl:'../roster/', showAction:'show'},title:false},
                 {name:'position', width:200, editable:true},
                 {name:'department', width:200, editable:true},
-                {name:'location', width:200,editable:false ,title:false, formatter: 'showlink', formatoptions: {showAction:'../location/show'}}
+                {name:'location', width:200,editable:false ,title:false, formatter: 'showlink', formatoptions: {baseLinkUrl: '../location/' ,showAction:'show'}}
             ],
 
             rowNum:10, //amount of rows you want to start off when the grid is called
