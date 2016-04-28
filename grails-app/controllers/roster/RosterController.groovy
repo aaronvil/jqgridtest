@@ -72,7 +72,7 @@ class RosterController {
                     params.theObject.department = params.deparment
                 if(params.location)
                     params.theObject.location = params.location
-
+                params.theObject.save()
                 if (! params.theObject.hasErrors() && params.theObject.save()) {
                     id params.theObject.id
                     state = "OK"
