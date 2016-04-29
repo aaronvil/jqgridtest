@@ -90,7 +90,6 @@ class RosterController {
                 respond new Roster(params)
                 break;
         }
-
         def response = [state:state,id:id]
         render response as JSON
     }
